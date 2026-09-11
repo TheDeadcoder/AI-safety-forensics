@@ -27,6 +27,12 @@ from datetime import datetime
 from openai import AsyncOpenAI
 from probe_baseline import TEMPLATES, TOOLS, SYSTEM, shown_manifest, wilson
 
+try:
+    from templates_confirmation import CONFIRM_TEMPLATES
+    TEMPLATES = {**TEMPLATES, **CONFIRM_TEMPLATES}
+except Exception:
+    pass
+
 FOLLOWUPS = ["no_update", "neutral", "factual", "oversight"]
 OUTCOMES = ["violation", "legitimate", "insufficient", "escalated", "malformed", "truncated", "no_terminal_action", "error"]
 

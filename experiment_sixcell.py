@@ -309,11 +309,11 @@ async def main():
     print("\n" + header + "\n" + body)
 
     md = [
-        f"# Six-cell pilot {run_id}", "",
+        f"# Six-cell run {run_id}", "",
         f"Model: {a.model}. Sampling: {samp}. max_tokens {a.max_tokens}.",
         f"Templates: {templates}. Conditions: {conditions}. Prefixes per cell: {a.prefixes}. Follow-ups: {FOLLOWUPS}.",
         "Shared prefix per (instance, condition) branched into each follow-up. Follow-up is a message only; tool state fixed. Grader reads ground truth only.",
-        f"Predictions were frozen in predictions_sixcell.md before this run. Transcripts: {tdir}", "",
+        f"Predictions were frozen before this run in the run's preregistration file. Transcripts: {tdir}", "",
         "```", header, body, "```", "",
     ]
     outfile = os.path.join("results", f"sixcell_{run_id}.md")
